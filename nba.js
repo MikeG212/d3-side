@@ -1,4 +1,7 @@
 // set the dimensions and margins of the graph
+var header = d3.select("body")
+    .append("h2")
+    .text("NBA Win Percentage vs PPG")
 
 var scatterplot = d3.select("body")
     .append("div")
@@ -18,7 +21,7 @@ var svg = d3.select("#scatterplot")
         "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("NBAData.csv", function(d) {
+d3.csv("NBAData.csv", function (d) {
     return {
         team: d.name,
         wins: d.wins,
@@ -28,7 +31,7 @@ d3.csv("NBAData.csv", function(d) {
         pointsPerGame: d.pointsPerGame,
         pointsAllowedPerGame: d.pointsAllowedPerGame
     };
-}).then(function(data) {
+}).then(function (data) {
     var x = d3.scaleLinear()
         .domain([0, 120])
         .range([0, width]);
