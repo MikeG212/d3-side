@@ -6,7 +6,7 @@ d3.select("body")
     .attr("height", 200)
     .attr("width", 300);
 
-var svg = d3.select("svg"),
+var svg = d3.select("#piechart"),
     width = svg.attr("width"),
     height = svg.attr("height"),
     radius = Math.min(width, height) / 2,
