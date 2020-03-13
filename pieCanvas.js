@@ -37,12 +37,9 @@ function databind(data) {
 
 function draw(data) {
     context.clearRect(0,0, width,height);
-    // var elements = custom.selectAll('custom.arc');
-    // elements.each(function(d, i) {
-    //     var node = d3.select(this);
-    //     context.fillStyle = node.attr('fillStyle');
-    //     context.fill
-    // })
+    var minLength = Math.min(width, height);
+    var mid = minLength / 2;
+    var radius = mid - 5;
     var colors = ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E', '#CDDC39'];
 
     var total = data.reduce(function (acc, el) {
@@ -67,9 +64,9 @@ function draw(data) {
         context.fillStyle = colors[i % colors.length];
 
         // Same code as before
-        context.moveTo(200, 200);
-        context.arc(200, 200, 120, beginAngle, endAngle);
-        context.lineTo(200, 200);
+        context.moveTo(mid, mid);
+        context.arc(mid, mid, radius, beginAngle, endAngle);
+        context.lineTo(mid, mid);
         context.stroke();
 
         // Fill
